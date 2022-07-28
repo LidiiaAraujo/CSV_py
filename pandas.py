@@ -1,0 +1,15 @@
+import pandas as pd
+
+df = pd.read_csv('business-financial-data-mar-2022-quarter-csv.csv')
+valor = df.groupby('Period')['Data_value'].sum()
+print(valor)
+valor_serius = df.groupby('Series_title_2')['Data_value'].sum()
+print(valor_serius)
+valor_sp = df.groupby('Series_title_2', 'Period')['Data_value'].sum()
+print(valor_sp)
+cont_s = df.groupby('Series_title_1')['Series_title_2'].count()
+print(cont_s)
+med_valor=valor_serius['Construction'].mean()
+print(med_valor)
+maks_valor=valor_serius['Education and Training'].max()
+print(maks_valor)
